@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		<label>{{title}}</label>
+        </div>
+		<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-4">
+			<img src="http://api.randomuser.me/portraits/women/76.jpg" alt="Glenda Patterson" class="img-responsive img-circle" />
+			</div>
+			<div class="col-sm-8">
+			
+		<div class="row">
+			<div class="col-sm-6">
+            First Name:
+			</div>
+			<div class="col-sm-6">
+            {{employee.firstName}}
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-sm-6">
+				Last Name: 
+			</div>
+			<div class="col-sm-6">
+				{{employee.lastName}}
+			</div>            
+        </div>
+        <div class="row">
+            <div class="col-sm-6">Email ID: </div><div class="col-sm-6">{{employee.emailId}}</div>
+        </div>
+		</div>
+		</div>
+		</div>
+	</div>
+	<button [routerLink]="['/dashboard/employees']" class="btn btn-sm btn-default">Back</button>
+    </div>
+</div>

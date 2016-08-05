@@ -1,0 +1,50 @@
+<div class="row">
+   <div class="col-md-12">
+      <table *ngIf="employees.length >0" class="table">
+         <thead>
+            <tr>
+               <th>
+                  Sr. No.
+               </th>
+               <th>
+                  FirstName
+               </th>
+               <th>
+                  LastName
+               </th>
+               <th>
+                  Actions
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let employee of employees">
+               <td>
+                  {{employee.id}}
+               </td>
+               <td>
+                  {{employee.firstName}}
+               </td>
+               <td>
+                  {{employee.lastName}}
+               </td>
+               <td>
+                  <button [routerLink]="['/dashboard/employee/edit/']+employee.id" class="btn btn-sm btn-primary">Edit</button>
+                  <button type="button" (click)="showModal(employee)"  class="btn btn-sm btn-primary">modal</button>
+                  <button type="button" (click)="deleteEmployee(employee)" class="btn btn-sm btn-danger">Delete</button>               
+                  <button [routerLink]="['/dashboard/employee/']+employee.id" class="btn btn-sm btn-info">View Details</button>
+               <td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="alert alert-success" role="alert" *ngIf="isSuccess">
+         {{message}}
+      </div>
+   </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" (click)="openModal()" >
+  Launch demo modal 1
+</button>
+<modal-data ></modal-data>

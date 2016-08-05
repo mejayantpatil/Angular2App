@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{title}}
+            </div>
+            <div class="panel-body">
+                <form #employeeForm="ngForm" name="employeeForm">
+                    <div class="form-group">
+                        <label for="i">Employee ID</label>
+                        <input type="number" [(ngModel)]="data.id" class="form-control" id="id" ngControl="id" placeholder="Employee ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">Employee First Name</label>
+                        <input type="text" [(ngModel)]="data.firstName" class="form-control" id="firstName" ngControl="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="LastName">Employee Last Name</label>
+                        <input type="text" [(ngModel)]="data.lastName" class="form-control" id="lastName" ngControl="lastName" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailid">Employee Email address</label>
+                        <input type="email" [(ngModel)]="data.emailId" class="form-control" id="emailid" ngControl="emailId" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        {{employeeForm.$invalid}}
+                        <button *ngIf="isSelected" type="button" (click)="updateEmployee()" [disabled]="!employeeForm.form.valid" class="btn btn-md btn-primary">update</button>
+                        <button *ngIf="!isSelected" type="button" (click)="newEmployee()" [disabled]="!employeeForm.form.valid" class="btn btn-md btn-primary">save</button>
+                    </div>
+                </form>
+                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> Something went wrong!
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="isSuccess">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
